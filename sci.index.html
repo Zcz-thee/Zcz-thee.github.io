@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics Master: The Universal Lab</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Physics Master: ห้องทดลองฟิสิกส์</h1>
+        
+        <div class="mode-selector">
+            <button onclick="setMode('sandbox')">โหมดทดลองอิสระ (Sandbox)</button>
+            <button onclick="setMode('quiz')">โหมดตะลุยโจทย์ (Quiz)</button>
+        </div>
+
+        <div class="main-content">
+            <canvas id="gameCanvas" width="800" height="500"></canvas>
+
+            <div class="controls">
+                <h3>แผงควบคุมตัวแปร</h3>
+                
+                <label>ความเร็วต้น (u): <span id="valV">50</span> m/s</label>
+                <input type="range" id="velocity" min="0" max="100" value="50">
+                
+                <label>มุมยิง (θ): <span id="valA">45</span> องศา</label>
+                <input type="range" id="angle" min="0" max="90" value="45">
+                
+                <label>แรงโน้มถ่วง (g): <span id="valG">9.8</span> m/s²</label>
+                <input type="range" id="gravity" min="1" max="20" value="9.8" step="0.1">
+
+                <button class="btn-fire" onclick="fireProjectile()">ยิงวัตถุ!</button>
+                <button class="btn-reset" onclick="resetCanvas()">ล้างค่า</button>
+            </div>
+        </div>
+
+        <div id="quizSection" class="quiz-box" style="display:none;">
+            <h3 id="questionText">โจทย์: ...</h3>
+            <input type="number" id="userAnswer" placeholder="ใส่คำตอบของคุณ">
+            <button onclick="checkAnswer()">ส่งคำตอบ</button>
+            <p id="feedback"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
